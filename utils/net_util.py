@@ -1,10 +1,10 @@
 """ Borrowed from https://github.com/andrewliao11/pytorch-a3c-mujoco/blob/master/model.py."""
 
-
 import numpy as np
 from PIL import Image
 import torch
 from torchvision import transforms
+
 
 def gpuify(tensor, gpu_id):
     if gpu_id >= 0:
@@ -12,9 +12,11 @@ def gpuify(tensor, gpu_id):
             tensor = tensor.cuda()
     return tensor
 
+
 def toFloatTensor(x, gpu_id):
     """ Convers x to a FloatTensor and puts on GPU. """
     return gpuify(torch.FloatTensor(x), gpu_id)
+
 
 def resnet_input_transform(input_image, im_size):
     """Takes in numpy ndarray of size (H, W, 3) and transforms into tensor for

@@ -34,7 +34,7 @@ def read_config(file_path):
 
 def norm_col_init(weights, std=1.0):
     x = torch.randn(weights.size())
-    x *= std / torch.sqrt((x**2).sum(1, keepdim=True))
+    x *= std / torch.sqrt((x ** 2).sum(1, keepdim=True))
     return x
 
 
@@ -61,6 +61,7 @@ class ForkedPdb(pdb.Pdb):
     from a forked multiprocessing child
 
     """
+
     def interaction(self, *args, **kwargs):
         _stdin = sys.stdin
         try:

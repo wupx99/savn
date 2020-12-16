@@ -11,7 +11,7 @@ class ThorAgent:
     """ Base class for all actor-critic agents. """
 
     def __init__(
-        self, model, args, rank, episode=None, max_episode_length=1e3, gpu_id=-1
+            self, model, args, rank, episode=None, max_episode_length=1e3, gpu_id=-1
     ):
         self.gpu_id = gpu_id
 

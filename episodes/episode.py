@@ -1,5 +1,6 @@
 "Defines the tasks that an agent should complete in a given environment."
 
+
 class Episode(object):
     """Manages an episode in the THOR env."""
 

@@ -19,7 +19,6 @@ from main_eval import main_eval
 
 from runners import nonadaptivea3c_train, nonadaptivea3c_val, savn_train, savn_val
 
-
 os.environ["OMP_NUM_THREADS"] = "1"
 
 
@@ -78,7 +77,7 @@ def main():
         print(shared_model)
     else:
         assert (
-            args.agent_type == "RandomNavigationAgent"
+                args.agent_type == "RandomNavigationAgent"
         ), "The model is None but agent is not random agent"
         optimizer = None
 

@@ -113,7 +113,7 @@ class BasicEpisode(Episode):
         )
 
     def _new_episode(
-        self, args, scenes, possible_targets, targets=None, keep_obj=False, glove=None
+            self, args, scenes, possible_targets, targets=None, keep_obj=False, glove=None
     ):
         """ New navigation episode. """
         scene = random.choice(scenes)
@@ -157,13 +157,13 @@ class BasicEpisode(Episode):
         )
 
     def new_episode(
-        self,
-        args,
-        scenes,
-        possible_targets=None,
-        targets=None,
-        keep_obj=False,
-        glove=None,
+            self,
+            args,
+            scenes,
+            possible_targets=None,
+            targets=None,
+            keep_obj=False,
+            glove=None,
     ):
         self.done_count = 0
         self.duplicate_count = 0

@@ -17,6 +17,7 @@ except ImportError:
 from ai2thor.controller import Controller, distance
 from .base_controller import BaseController
 
+
 class ThorAgentState:
     """ Representation of a simple state of a Thor Agent which includes
         the position, horizon and rotation. """
@@ -47,12 +48,12 @@ class ThorAgentState:
             For now we consider this 'close enough'. """
         if isinstance(other, ThorAgentState):
             return (
-                self.x == other.x
-                and
-                # self.y == other.y and
-                self.z == other.z
-                and self.rotation == other.rotation
-                and self.horizon == other.horizon
+                    self.x == other.x
+                    and
+                    # self.y == other.y and
+                    self.z == other.z
+                    and self.rotation == other.rotation
+                    and self.horizon == other.horizon
             )
         return NotImplemented
 
@@ -88,20 +89,20 @@ class ExhaustiveBFSController(Controller):
         OfflineControllerWithSmallRotation for more information on how the generated data may be used. """
 
     def __init__(
-        self,
-        grid_size=0.25,
-        fov=90.0,
-        grid_file=None,
-        graph_file=None,
-        metadata_file=None,
-        images_file=None,
-        seg_file=None,
-        class_file=None,
-        depth_file=None,
-        debug_mode=True,
-        grid_assumption=False,
-        local_executable_path=None,
-        actions=["MoveAhead", "RotateLeft", "RotateRight", "LookUp", "LookDown"],
+            self,
+            grid_size=0.25,
+            fov=90.0,
+            grid_file=None,
+            graph_file=None,
+            metadata_file=None,
+            images_file=None,
+            seg_file=None,
+            class_file=None,
+            depth_file=None,
+            debug_mode=True,
+            grid_assumption=False,
+            local_executable_path=None,
+            actions=["MoveAhead", "RotateLeft", "RotateRight", "LookUp", "LookDown"],
     ):
 
         super(ExhaustiveBFSController, self).__init__()
@@ -315,8 +316,8 @@ class ExhaustiveBFSController(Controller):
 
         # ensure state is a legal rotation and horizon.
         if (
-            round(state.horizon) not in self.horizons
-            or round(state.rotation) not in self.rotations
+                round(state.horizon) not in self.horizons
+                or round(state.rotation) not in self.rotations
         ):
             self.bad_seen_states.append(state)
             return False
@@ -464,11 +465,11 @@ class ExhaustiveBFSController(Controller):
         self.visited_seen_states.append(search_state)
 
         if self.make_grid and not any(
-            map(
-                lambda p: distance(p, search_state.position())
-                < self.distance_threshold,
-                self.grid_points,
-            )
+                map(
+                    lambda p: distance(p, search_state.position())
+                              < self.distance_threshold,
+                    self.grid_points,
+                )
         ):
             self.grid_points.append(search_state.position())
 
@@ -531,19 +532,19 @@ class OfflineControllerWithSmallRotation(BaseController):
         that you want to be returned for event.frame. """
 
     def __init__(
-        self,
-        grid_size=0.25,
-        fov=100,
-        offline_data_dir="/mnt/6tb/mitchellw/data/living_room_offline_data",
-        grid_file_name="grid.json",
-        graph_file_name="graph.json",
-        metadata_file_name="visible_object_map.json",
-        # metadata_file_name='metadata.json',
-        images_file_name="images.hdf5",
-        debug_mode=True,
-        actions=["MoveAhead", "RotateLeft", "RotateRight", "LookUp", "LookDown"],
-        visualize=True,
-        local_executable_path=None,
+            self,
+            grid_size=0.25,
+            fov=100,
+            offline_data_dir="/mnt/6tb/mitchellw/data/living_room_offline_data",
+            grid_file_name="grid.json",
+            graph_file_name="graph.json",
+            metadata_file_name="visible_object_map.json",
+            # metadata_file_name='metadata.json',
+            images_file_name="images.hdf5",
+            debug_mode=True,
+            actions=["MoveAhead", "RotateLeft", "RotateRight", "LookUp", "LookDown"],
+            visualize=True,
+            local_executable_path=None,
     ):
 
         super(OfflineControllerWithSmallRotation, self).__init__()
@@ -608,27 +609,27 @@ class OfflineControllerWithSmallRotation(BaseController):
         if scene_name != self.scene_name:
             self.scene_name = scene_name
             with open(
-                os.path.join(
-                    self.offline_data_dir, self.scene_name, self.grid_file_name
-                ),
-                "r",
+                    os.path.join(
+                        self.offline_data_dir, self.scene_name, self.grid_file_name
+                    ),
+                    "r",
             ) as f:
                 self.grid = json.load(f)
             with open(
-                os.path.join(
-                    self.offline_data_dir, self.scene_name, self.graph_file_name
-                ),
-                "r",
+                    os.path.join(
+                        self.offline_data_dir, self.scene_name, self.graph_file_name
+                    ),
+                    "r",
             ) as f:
                 graph_json = json.load(f)
             self.graph = self.json_graph_loader.node_link_graph(
                 graph_json
             ).to_directed()
             with open(
-                os.path.join(
-                    self.offline_data_dir, self.scene_name, self.metadata_file_name
-                ),
-                "r",
+                    os.path.join(
+                        self.offline_data_dir, self.scene_name, self.metadata_file_name
+                    ),
+                    "r",
             ) as f:
                 self.metadata = json.load(f)
                 # Determine if using the raw metadata, which is structured as a dictionary of
@@ -701,8 +702,8 @@ class OfflineControllerWithSmallRotation(BaseController):
             )
             viz_next_state = self.controller.get_state_from_event(viz_event)
             if (
-                round(viz_next_state.horizon) not in self.horizons
-                or round(viz_next_state.rotation) not in self.rotations
+                    round(viz_next_state.horizon) not in self.horizons
+                    or round(viz_next_state.rotation) not in self.rotations
             ):
                 # return back to original state.
                 self.controller.teleport_to_state(self.state)
@@ -719,7 +720,7 @@ class OfflineControllerWithSmallRotation(BaseController):
                 event = self._successful_event()
                 if self.debug_mode and self.visualize:
                     if self.controller.get_state_from_event(
-                        viz_event
+                            viz_event
                     ) != self.controller.get_state_from_event(event):
                         print(action)
                         print(str(self.controller.get_state_from_event(viz_event)))

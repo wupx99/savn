@@ -82,8 +82,8 @@ class SharedRMSprop(optim.Optimizer):
                     grad_avg.mul_(alpha).add_(1 - alpha, grad)
                     avg = (
                         square_avg.addcmul(-1, grad_avg, grad_avg)
-                        .sqrt()
-                        .add_(group["eps"])
+                            .sqrt()
+                            .add_(group["eps"])
                     )
                 else:
                     avg = square_avg.sqrt().add_(group["eps"])

@@ -22,16 +22,15 @@ from .train_util import (
 
 
 def savn_train(
-    rank,
-    args,
-    create_shared_model,
-    shared_model,
-    initialize_agent,
-    optimizer,
-    res_queue,
-    end_flag,
+        rank,
+        args,
+        create_shared_model,
+        shared_model,
+        initialize_agent,
+        optimizer,
+        res_queue,
+        end_flag,
 ):
-
     glove = Glove(args.glove_file)
     scenes, possible_targets, targets = get_data(args.scene_types, args.train_scenes)
 

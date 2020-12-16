@@ -23,16 +23,15 @@ from .train_util import (
 
 
 def savn_val(
-    rank,
-    args,
-    model_to_open,
-    model_create_fn,
-    initialize_agent,
-    res_queue,
-    max_count,
-    scene_type,
+        rank,
+        args,
+        model_to_open,
+        model_create_fn,
+        initialize_agent,
+        res_queue,
+        max_count,
+        scene_type,
 ):
-
     glove = Glove(args.glove_file)
     scenes, possible_targets, targets = get_data(args.scene_types, args.val_scenes)
     num = name_to_num(scene_type)

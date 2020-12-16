@@ -16,13 +16,13 @@ def run_episode(player, args, total_reward, model_options, training):
 
 
 def new_episode(
-    args,
-    player,
-    scenes,
-    possible_targets=None,
-    targets=None,
-    keep_obj=False,
-    glove=None,
+        args,
+        player,
+        scenes,
+        possible_targets=None,
+        targets=None,
+        keep_obj=False,
+        glove=None,
 ):
     player.episode.new_episode(args, scenes, possible_targets, targets, keep_obj, glove)
     player.reset_hidden()
@@ -54,17 +54,17 @@ def a3c_loss(args, player, gpu_id, model_options):
         value_loss = value_loss + 0.5 * advantage.pow(2)
 
         delta_t = (
-            player.rewards[i]
-            + args.gamma * player.values[i + 1].data
-            - player.values[i].data
+                player.rewards[i]
+                + args.gamma * player.values[i + 1].data
+                - player.values[i].data
         )
 
         gae = gae * args.gamma * args.tau + delta_t
 
         policy_loss = (
-            policy_loss
-            - player.log_probs[i] * Variable(gae)
-            - args.beta * player.entropies[i]
+                policy_loss
+                - player.log_probs[i] * Variable(gae)
+                - args.beta * player.entropies[i]
         )
 
     return policy_loss, value_loss
@@ -85,7 +85,7 @@ def transfer_gradient_from_player_to_shared(player, shared_model, gpu_id):
     """ Transfer the gradient from the player's model to the shared model
         and step """
     for param, shared_param in zip(
-        player.model.parameters(), shared_model.parameters()
+            player.model.parameters(), shared_model.parameters()
     ):
         if shared_param.requires_grad:
             if param.grad is None:
@@ -169,9 +169,8 @@ def compute_loss(args, player, gpu_id, model_options):
 
 
 def end_episode(
-    player, res_queue, title=None, episode_num=0, include_obj_success=False, **kwargs
+        player, res_queue, title=None, episode_num=0, include_obj_success=False, **kwargs
 ):
-
     results = {
         "done_count": player.episode.done_count,
         "ep_length": player.eps_len,
@@ -192,7 +191,6 @@ def get_bucketed_metrics(spl, best_path_length, success):
 
 
 def compute_spl(player, start_state):
-
     best = float("inf")
     for obj_id in player.episode.task_data:
         try:

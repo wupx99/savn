@@ -44,13 +44,13 @@ class TestValEpisode(BasicEpisode):
         return True
 
     def new_episode(
-        self,
-        args,
-        scenes,
-        possible_targets=None,
-        targets=None,
-        keep_obj=False,
-        glove=None,
+            self,
+            args,
+            scenes,
+            possible_targets=None,
+            targets=None,
+            keep_obj=False,
+            glove=None,
     ):
         self.done_count = 0
         self.duplicate_count = 0
@@ -61,9 +61,9 @@ class TestValEpisode(BasicEpisode):
         if self.file is None:
             sample_scene = scenes[0]
             if "physics" in sample_scene:
-                scene_num = sample_scene[len("FloorPlan") : -len("_physics")]
+                scene_num = sample_scene[len("FloorPlan"): -len("_physics")]
             else:
-                scene_num = sample_scene[len("FloorPlan") :]
+                scene_num = sample_scene[len("FloorPlan"):]
             scene_num = int(scene_num)
             scene_type = num_to_name(scene_num)
             task_type = args.test_or_val

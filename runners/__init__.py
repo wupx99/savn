@@ -3,7 +3,7 @@ from .nonadaptivea3c_val import nonadaptivea3c_val
 from .savn_train import savn_train
 from .savn_val import savn_val
 
-trainers = [ 
+trainers = [
     'vanilla_train',
     'learned_train',
 ]

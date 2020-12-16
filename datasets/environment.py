@@ -11,13 +11,13 @@ class Environment:
     """ Abstraction of the ai2thor enviroment. """
 
     def __init__(
-        self,
-        use_offline_controller,
-        grid_size=0.25,
-        fov=100.0,
-        offline_data_dir="~/data/offline_data/",
-        images_file_name="images.hdf5",
-        local_executable_path=None,
+            self,
+            use_offline_controller,
+            grid_size=0.25,
+            fov=100.0,
+            offline_data_dir="~/data/offline_data/",
+            images_file_name="images.hdf5",
+            local_executable_path=None,
     ):
 
         self.offline_data_dir = offline_data_dir
