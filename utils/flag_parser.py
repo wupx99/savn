@@ -2,6 +2,8 @@ import argparse
 
 
 def parse_arguments():
+    data_path = "/data/wpx/"
+
     parser = argparse.ArgumentParser(description="SAVN.")
     parser.add_argument(
         "--lr",
@@ -88,7 +90,7 @@ def parse_arguments():
     )
     parser.add_argument(
         "--save-model-dir",
-        default="trained_models/",
+        default=data_path + "trained_models/",
         metavar="SMD",
         help="folder to save trained navigation",
     )
@@ -204,13 +206,13 @@ def parse_arguments():
     parser.add_argument(
         "--offline_data_dir",
         type=str,
-        default="./data/thor_offline_data",
+        default=data_path + "data/thor_offline_data",
         help="where dataset is stored.",
     )
     parser.add_argument(
         "--glove_dir",
         type=str,
-        default="./data/thor_glove",
+        default=data_path + "data/thor_glove",
         help="where the glove files are stored.",
     )
     parser.add_argument(
