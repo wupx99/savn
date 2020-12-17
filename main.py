@@ -13,6 +13,7 @@ from tensorboardX import SummaryWriter
 
 # from utils import flag_parser
 from utils import flag_parser_train_savn as flag_parser
+# from utils import flag_parser_train_a3c as flag_parser
 
 from utils.class_finder import model_class, agent_class, optimizer_class
 from utils.net_util import ScalarMeanTracker
@@ -113,6 +114,7 @@ def main():
 
     try:
         while train_total_ep < args.max_ep:
+        # while train_total_ep < 20:
 
             train_result = train_res_queue.get()
             train_scalars.add_scalars(train_result)
@@ -127,7 +129,7 @@ def main():
                     )
 
             if (train_total_ep % args.ep_save_freq) == 0:
-
+            # if (train_total_ep % 20) == 0:
                 print(n_frames)
                 if not os.path.exists(args.save_model_dir):
                     os.makedirs(args.save_model_dir)

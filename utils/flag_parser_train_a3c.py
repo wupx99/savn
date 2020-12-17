@@ -78,7 +78,7 @@ def parse_arguments():
     parser.add_argument(
         "--ep_save_freq",
         type=int,
-        default=1e+4,
+        default=1e5,
         help="save model after this # of training episodes (default: 1e+4)",
     )
     parser.add_argument(
@@ -99,7 +99,7 @@ def parse_arguments():
     parser.add_argument(
         "--gpu-ids",
         type=int,
-        default=[0, 1],
+        default=[0, 1, 2, 3],
         nargs="+",
         help="GPUs to use [-1 CPU only] (default: -1)",
     )
@@ -132,10 +132,10 @@ def parse_arguments():
         help="If true, output will contain more information.",
     )
     parser.add_argument(  # wpx
-        "--max_ep", type=float, default=6000000, help="maximum # of episodes"
+        "--max_ep", type=float, default=1, help="maximum # of episodes"
     )
 
-    parser.add_argument("--model", type=str, default="SAVN", help="Model to use.")
+    parser.add_argument("--model", type=str, default="BaseModel", help="Model to use.")
 
     parser.add_argument(
         "--train_thin", type=int, default=1000, help="How often to print"
@@ -158,7 +158,7 @@ def parse_arguments():
         help="Whether or not to have a test agent.",
     )
     parser.add_argument(
-        "--title", type=str, default="savn_train", help="Info for logging."
+        "--title", type=str, default="nonadaptivea3c_train", help="Info for logging."
     )
 
     parser.add_argument(
