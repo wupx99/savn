@@ -11,7 +11,8 @@ import torch
 import torch.multiprocessing as mp
 from tensorboardX import SummaryWriter
 
-from utils import flag_parser
+# from utils import flag_parser
+from utils import flag_parser_train_savn as flag_parser
 
 from utils.class_finder import model_class, agent_class, optimizer_class
 from utils.net_util import ScalarMeanTracker
@@ -149,4 +150,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    # test
