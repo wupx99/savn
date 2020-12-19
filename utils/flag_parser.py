@@ -139,7 +139,7 @@ def parse_arguments():
     parser.add_argument("--model", type=str, default="BaseModel", help="Model to use.")
 
     parser.add_argument(
-        "--train_thin", type=int, default=1000, help="How often to print"
+        "--train_thin", type=int, default=10000, help="How often to print"
     )
     parser.add_argument(
         "--local_executable_path",

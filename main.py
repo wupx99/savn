@@ -11,8 +11,8 @@ import torch
 import torch.multiprocessing as mp
 from tensorboardX import SummaryWriter
 
-# from utils import flag_parser
-from utils import flag_parser_train_savn as flag_parser
+from utils import flag_parser
+# from utils import flag_parser_train_savn as flag_parser
 # from utils import flag_parser_train_a3c as flag_parser
 
 from utils.class_finder import model_class, agent_class, optimizer_class
@@ -114,13 +114,14 @@ def main():
 
     try:
         while train_total_ep < args.max_ep:
-        # while train_total_ep < 20:
+        # while train_total_ep < 10000:
 
             train_result = train_res_queue.get()
             train_scalars.add_scalars(train_result)
             train_total_ep += 1
             n_frames += train_result["ep_length"]
             if (train_total_ep % train_thin) == 0:
+            # if (train_total_ep % 1000) == 0:
                 log_writer.add_scalar("n_frames", n_frames, train_total_ep)
                 tracked_means = train_scalars.pop_and_reset()
                 for k in tracked_means:
@@ -129,7 +130,7 @@ def main():
                     )
 
             if (train_total_ep % args.ep_save_freq) == 0:
-            # if (train_total_ep % 20) == 0:
+            # if (train_total_ep % 10000) == 0:
                 print(n_frames)
                 if not os.path.exists(args.save_model_dir):
                     os.makedirs(args.save_model_dir)

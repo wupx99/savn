@@ -78,7 +78,8 @@ def parse_arguments():
     parser.add_argument(
         "--ep_save_freq",
         type=int,
-        default=1e5,
+        default=20,
+        # default=1e5,
         help="save model after this # of training episodes (default: 1e+4)",
     )
     parser.add_argument(
@@ -132,7 +133,7 @@ def parse_arguments():
         help="If true, output will contain more information.",
     )
     parser.add_argument(  # wpx
-        "--max_ep", type=float, default=1, help="maximum # of episodes"
+        "--max_ep", type=float, default=20, help="maximum # of episodes"
     )
 
     parser.add_argument("--model", type=str, default="BaseModel", help="Model to use.")
