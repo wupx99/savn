@@ -40,7 +40,7 @@ def parse_arguments():
     parser.add_argument(
         "--seed", type=int, default=1, metavar="S", help="random seed (default: 1)"
     )
-    parser.add_argument(
+    parser.add_argument(  # wpx
         "--workers",
         type=int,
         default=12,
@@ -87,7 +87,7 @@ def parse_arguments():
         metavar="OPT",
         help="shared optimizer choice of SharedAdam or SharedRMSprop",
     )
-    parser.add_argument(
+    parser.add_argument(  # wpx
         "--save-model-dir",
         default=data_path + "trained_models/",
         metavar="SMD",
@@ -96,7 +96,7 @@ def parse_arguments():
     parser.add_argument(
         "--log-dir", default="runs/", metavar="LG", help="folder to save logs"
     )
-    parser.add_argument(
+    parser.add_argument(  # wpx
         "--gpu-ids",
         type=int,
         default=[0, 1],
@@ -135,9 +135,9 @@ def parse_arguments():
         "--max_ep", type=float, default=6000000, help="maximum # of episodes"
     )
 
-    parser.add_argument("--model", type=str, default="SAVN", help="Model to use.")
+    parser.add_argument("--model", type=str, default="SAVN", help="Model to use.")  # wpx
 
-    parser.add_argument(
+    parser.add_argument(  # wpx
         "--train_thin", type=int, default=1000, help="How often to print"
     )
     parser.add_argument(
@@ -157,7 +157,7 @@ def parse_arguments():
         action="store_true",
         help="Whether or not to have a test agent.",
     )
-    parser.add_argument(
+    parser.add_argument(  # wpx
         "--title", type=str, default="savn_train", help="Info for logging."
     )
 
@@ -202,13 +202,13 @@ def parse_arguments():
 
     parser.add_argument("--eval", action="store_true", help="run the test code")
 
-    parser.add_argument(
+    parser.add_argument(  # wpx
         "--offline_data_dir",
         type=str,
         default=data_path + "data/thor_offline_data",
         help="where dataset is stored.",
     )
-    parser.add_argument(
+    parser.add_argument(  # wpx
         "--glove_dir",
         type=str,
         default=data_path + "data/thor_glove",
@@ -267,7 +267,7 @@ def parse_arguments():
         help="How many gradient steps allowed for MAML.",
     )
 
-    parser.add_argument("--test_or_val", default="val", help="test or val")
+    parser.add_argument("--test_or_val", default="val", help="test or val")  # wpx
 
     args = parser.parse_args()
 
