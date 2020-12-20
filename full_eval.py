@@ -7,9 +7,7 @@ from tabulate import tabulate
 from tqdm import tqdm
 
 from main_eval import main_eval
-# from utils import flag_parser
-from utils import flag_parser_eval_a3c as flag_parser
-from utils.class_finder import model_class, agent_class
+from utils import flag_parser
 
 os.environ["OMP_NUM_THREADS"] = "1"
 

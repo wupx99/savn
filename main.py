@@ -17,9 +17,6 @@ from utils import flag_parser
 from utils.class_finder import model_class, agent_class, optimizer_class
 from utils.net_util import ScalarMeanTracker
 
-# from utils import flag_parser_train_savn as flag_parser
-# from utils import flag_parser_train_a3c as flag_parser
-
 os.environ["OMP_NUM_THREADS"] = "1"
 
 
