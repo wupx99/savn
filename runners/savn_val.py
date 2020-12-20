@@ -1,13 +1,13 @@
 from __future__ import division
 
 import time
-import setproctitle
+
 import copy
-from datasets.glove import Glove
+import setproctitle
+
 from datasets.data import get_data, name_to_num
-
+from datasets.glove import Glove
 from models.model_io import ModelOptions
-
 from .train_util import (
     new_episode,
     run_episode,

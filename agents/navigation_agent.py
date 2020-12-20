@@ -1,7 +1,7 @@
 import torch
-from utils.net_util import gpuify
-from models.model_io import ModelInput
 
+from models.model_io import ModelInput
+from utils.net_util import gpuify
 from .agent import ThorAgent
 
 

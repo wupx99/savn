@@ -3,8 +3,8 @@ from __future__ import division
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from utils.net_util import norm_col_init, weights_init
 
+from utils.net_util import norm_col_init, weights_init
 from .model_io import ModelOutput
 
 

@@ -1,14 +1,14 @@
 from __future__ import division
 
 import time
-import torch
-import setproctitle
+
 import copy
-from datasets.glove import Glove
+import setproctitle
+import torch
+
 from datasets.data import get_data, name_to_num
-
+from datasets.glove import Glove
 from models.model_io import ModelOptions
-
 from .train_util import (
     compute_loss,
     new_episode,

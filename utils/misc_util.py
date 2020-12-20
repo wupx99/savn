@@ -2,11 +2,11 @@ from __future__ import division
 
 import json
 import logging
-import os
 import pdb
 import sys
 
 import numpy as np
+import os
 import torch
 
 

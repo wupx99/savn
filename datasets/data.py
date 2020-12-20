@@ -1,5 +1,3 @@
-from .scene_util import get_scenes
-
 from .constants import (
     KITCHEN_OBJECT_CLASS_LIST,
     LIVING_ROOM_OBJECT_CLASS_LIST,
@@ -7,6 +5,7 @@ from .constants import (
     BATHROOM_OBJECT_CLASS_LIST,
     FULL_OBJECT_CLASS_LIST,
 )
+from .scene_util import get_scenes
 
 
 def name_to_num(name):

@@ -1,15 +1,13 @@
 """ Contains the Episodes for Navigation. """
 import random
-
 import torch
 
-from datasets.constants import GOAL_SUCCESS_REWARD, STEP_PENALTY
 from datasets.constants import DONE
+from datasets.constants import GOAL_SUCCESS_REWARD, STEP_PENALTY
 from datasets.environment import Environment
-
-from utils.net_util import gpuify, toFloatTensor
 from utils.action_util import get_actions
 from utils.net_util import gpuify
+from utils.net_util import toFloatTensor
 from .episode import Episode
 
 

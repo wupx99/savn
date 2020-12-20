@@ -1,13 +1,13 @@
 from __future__ import division
 
 import time
+
 import random
 import setproctitle
-from datasets.glove import Glove
+
 from datasets.data import get_data
-
+from datasets.glove import Glove
 from models.model_io import ModelOptions
-
 from .train_util import (
     compute_loss,
     new_episode,

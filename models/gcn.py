@@ -2,16 +2,15 @@
 
 from __future__ import division
 
+import numpy as np
+import scipy.sparse as sp
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torchvision.models as models
-from utils.net_util import norm_col_init, weights_init
-import scipy.sparse as sp
-import numpy as np
 
 from datasets.glove import Glove
-
+from utils.net_util import norm_col_init, weights_init
 from .model_io import ModelOutput
 
 

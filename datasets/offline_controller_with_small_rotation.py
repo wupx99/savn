@@ -1,13 +1,13 @@
 """ Exhaustive BFS and Offline Controller. """
 
 import importlib
-from collections import deque
 import json
-import copy
 import time
-import random
+from collections import deque
+
+import copy
 import os
-import platform
+import random
 
 try:
     from queue import Queue

@@ -1,10 +1,9 @@
 import torch
 
-from .agent import ThorAgent
-from utils.net_util import gpuify
-
 from episodes.basic_episode import BasicEpisode
 from models.model_io import ModelInput, ModelOutput
+from utils.net_util import gpuify
+from .agent import ThorAgent
 
 
 class RandomNavigationAgent(ThorAgent):

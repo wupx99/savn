@@ -1,8 +1,8 @@
 """ Borrowed from https://github.com/andrewliao11/pytorch-a3c-mujoco/blob/master/model.py."""
 
 import numpy as np
-from PIL import Image
 import torch
+from PIL import Image
 from torchvision import transforms
 
 

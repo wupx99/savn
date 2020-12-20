@@ -1,6 +1,7 @@
 from __future__ import division
 
 import torch.nn as nn
+
 from .basemodel import BaseModel
 from .tcn import TemporalConvNet
 

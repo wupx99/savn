@@ -1,9 +1,11 @@
 """A wrapper for engaging with the THOR environment."""
 
-import copy
 import json
+
+import copy
 import os
 import random
+
 from .offline_controller_with_small_rotation import OfflineControllerWithSmallRotation
 
 

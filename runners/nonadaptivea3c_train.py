@@ -2,17 +2,13 @@ from __future__ import division
 
 import time
 
-from datasets.data import get_data
-from datasets.glove import Glove
-
+import random
 import setproctitle
 
-from models.model_io import ModelOptions
-
 from agents.random_agent import RandomNavigationAgent
-
-import random
-
+from datasets.data import get_data
+from datasets.glove import Glove
+from models.model_io import ModelOptions
 from .train_util import (
     compute_loss,
     new_episode,

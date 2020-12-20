@@ -1,8 +1,9 @@
-import models
+import argparse
+
 import agents
 import episodes
+import models
 import optimizers
-import argparse
 
 
 def model_class(class_name):
