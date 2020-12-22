@@ -32,13 +32,13 @@ def savn_train(
         end_flag,
 ):
     glove = Glove(args.glove_file)
-    scenes, possible_targets, targets = get_data(args.scene_types, args.train_scenes)
+    scenes, possible_targets, targets = get_data(args.scene_types, args.train_scenes)  # possible_targets ?
 
     random.seed(args.seed + rank)
     idx = [j for j in range(len(args.scene_types))]
     random.shuffle(idx)
 
-    setproctitle.setproctitle("Training Agent: {}".format(rank))
+    setproctitle.setproctitle("Training Agent: {}".format(rank))  # 进程名称
 
     gpu_id = args.gpu_ids[rank % len(args.gpu_ids)]
 

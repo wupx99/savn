@@ -30,7 +30,7 @@ def main():
         target = nonadaptivea3c_val if args.eval else nonadaptivea3c_train
     else:
         args.learned_loss = True
-        args.num_steps = 6
+        args.num_steps = 6  # 超参数K
         target = savn_val if args.eval else savn_train
 
     create_shared_model = model_class(args.model)
@@ -110,14 +110,15 @@ def main():
 
     try:
         while train_total_ep < args.max_ep:
-            # while train_total_ep < 10000:
+        # while train_total_ep < 10000:
 
             train_result = train_res_queue.get()
             train_scalars.add_scalars(train_result)
             train_total_ep += 1
             n_frames += train_result["ep_length"]
+
             if (train_total_ep % train_thin) == 0:
-                # if (train_total_ep % 1000) == 0:
+            # if (train_total_ep % 1000) == 0:
                 log_writer.add_scalar("n_frames", n_frames, train_total_ep)
                 tracked_means = train_scalars.pop_and_reset()
                 for k in tracked_means:
@@ -126,7 +127,7 @@ def main():
                     )
 
             if (train_total_ep % args.ep_save_freq) == 0:
-                # if (train_total_ep % 10000) == 0:
+            # if (train_total_ep % 10000) == 0:
                 print(n_frames)
                 if not os.path.exists(args.save_model_dir):
                     os.makedirs(args.save_model_dir)

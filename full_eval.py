@@ -8,6 +8,7 @@ from tqdm import tqdm
 
 from main_eval import main_eval
 from utils import flag_parser
+from utils.class_finder import model_class, agent_class
 
 os.environ["OMP_NUM_THREADS"] = "1"
 
